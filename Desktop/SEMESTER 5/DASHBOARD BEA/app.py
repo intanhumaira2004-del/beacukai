@@ -160,7 +160,7 @@ body {
 <div class="hero-subtitle">Menjaga Perbatasan, Menggerakkan Ekonomi</div>
 
 <div class="hero-tagline">
-Infographic dashboard ini menyajikan gambaran komprehensif mengenai peran strategis
+Infographic ini menyajikan gambaran komprehensif mengenai peran strategis
 Direktorat Jenderal Bea dan Cukai (DJBC) Wilayah Aceh dalam menjaga kedaulatan ekonomi,
 memfasilitasi perdagangan, serta melindungi masyarakat dari peredaran barang ilegal
 dan berbahaya.
