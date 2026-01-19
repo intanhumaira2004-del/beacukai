@@ -121,7 +121,7 @@ if menu == "🏠 Beranda":
         <div class="hero-title">🛃 Customs in Action</div>
         <div class="hero-subtitle">DJBC Wilayah Aceh</div>
         <div class="hero-desc">
-        Dashboard infografis interaktif yang menyajikan peran strategis Bea dan Cukai
+        Infografis ini yang menyajikan peran strategis Bea dan Cukai
         dalam menjaga perbatasan, mengamankan penerimaan negara, memfasilitasi perdagangan,
         serta melindungi masyarakat dari peredaran barang ilegal dan berbahaya.
         </div>
