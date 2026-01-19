@@ -1,276 +1,320 @@
 import streamlit as st
 
 st.set_page_config(
-    page_title="Customs in Action — DJBC Aceh",
+    page_title="Customs in Action | DJBC Aceh",
     page_icon="🛃",
     layout="wide"
 )
 
-# ===================== STYLE =====================
 st.markdown("""
 <style>
 body {
-    background-color: #f4f7fb;
+    background-color: #eef3f9;
 }
-.block {
-    background: white;
-    padding: 22px;
-    border-radius: 18px;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
-    border-left: 6px solid #003a8f;
-    margin-bottom: 20px;
+.wrapper {
+    background: linear-gradient(135deg, #003a8f, #005bac);
+    padding: 55px 45px;
+    border-radius: 30px;
+    color: white;
+    box-shadow: 0 14px 40px rgba(0,0,0,0.25);
 }
-.title {
-    font-size: 36px;
+
+.hero-title {
+    text-align: center;
+    font-size: 52px;
     font-weight: 900;
-    color: #003a8f;
+    margin-bottom: 5px;
 }
-.subtitle {
-    font-size: 18px;
-    color: #555;
+
+.hero-subtitle {
+    text-align: center;
+    font-size: 22px;
+    opacity: 0.95;
+    margin-bottom: 25px;
 }
-.section {
-    font-size: 26px;
-    font-weight: 800;
-    color: #003a8f;
-    margin-top: 30px;
+
+.hero-tagline {
+    text-align: center;
+    font-size: 16px;
+    max-width: 1000px;
+    margin: auto;
+    line-height: 1.9;
+    margin-bottom: 35px;
 }
-.flow {
+
+.badge-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+}
+
+.badge {
+    background: rgba(255,255,255,0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: 900;
+    margin: 45px 0 25px;
+    border-left: 8px solid #f9b233;
+    padding-left: 16px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+.info-card {
+    background: rgba(255,255,255,0.18);
+    border-radius: 24px;
+    padding: 26px 24px;
+    text-align: center;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15);
+}
+
+.info-icon {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.info-title {
+    font-weight: 900;
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.info-text {
+    font-size: 14.5px;
+    line-height: 1.7;
+}
+
+.highlight-box {
+    background: rgba(255,255,255,0.2);
+    border-radius: 26px;
+    padding: 28px;
+    line-height: 1.85;
+    font-size: 15.5px;
+}
+
+.timeline {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 15px;
+    gap: 18px;
+    margin-top: 10px;
 }
-.step {
-    background: #eaf1fb;
-    padding: 16px;
-    border-radius: 14px;
+
+.timeline-step {
+    background: rgba(255,255,255,0.22);
+    padding: 18px;
+    border-radius: 20px;
     text-align: center;
     font-weight: 700;
+    font-size: 14.5px;
 }
-.footer {
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 22px;
+}
+
+.stat-box {
+    background: rgba(255,255,255,0.22);
+    border-radius: 22px;
+    padding: 22px;
     text-align: center;
-    margin-top: 40px;
+}
+
+.stat-number {
+    font-size: 32px;
+    font-weight: 900;
+    margin-bottom: 6px;
+}
+
+.stat-label {
     font-size: 13px;
-    color: gray;
+    opacity: 0.95;
+}
+
+.footer {
+    margin-top: 65px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,0.35);
+    text-align: center;
+    font-size: 14px;
+    opacity: 0.9;
 }
 </style>
-""", unsafe_allow_html=True)
 
-# ===================== SIDEBAR =====================
-st.sidebar.title("🛃 DJBC Aceh")
-menu = st.sidebar.radio(
-    "Navigasi Materi",
-    [
-        "🏠 Beranda",
-        "📘 Konsep Kepabeanan",
-        "🌍 Daerah Pabean",
-        "📄 Pemberitahuan Pabean",
-        "🏗️ TPS & TPB",
-        "🚢 Impor & Ekspor",
-        "💰 Pembayaran & Jaminan",
-        "🚚 Pengangkutan",
-        "🛡️ Barang Tertentu",
-        "ℹ️ Tentang"
-    ]
-)
+<div class="wrapper">
 
-# ===================== BERANDA =====================
-if menu == "🏠 Beranda":
-    st.markdown('<div class="title">🛃 Customs in Action</div>', unsafe_allow_html=True)
-    st.markdown('<div class="subtitle">Infographic Dashboard — DJBC Aceh</div>', unsafe_allow_html=True)
+<div class="hero-title">🛃 Customs in Action</div>
+<div class="hero-subtitle">Menjaga Perbatasan, Menggerakkan Ekonomi</div>
 
-    st.success("Dashboard edukasi kepabeanan berbasis materi resmi DJBC Wilayah Aceh")
+<div class="hero-tagline">
+Infographic dashboard ini menyajikan gambaran komprehensif mengenai peran strategis
+Direktorat Jenderal Bea dan Cukai (DJBC) Wilayah Aceh dalam menjaga kedaulatan ekonomi,
+memfasilitasi perdagangan, serta melindungi masyarakat dari peredaran barang ilegal
+dan berbahaya.
+</div>
 
-    col1, col2, col3, col4 = st.columns(4)
-    col1.metric("📦 Lalu Lintas Barang", "Impor & Ekspor")
-    col2.metric("💰 Penerimaan Negara", "Bea & Cukai")
-    col3.metric("🛡️ Perlindungan Publik", "Barang Ilegal")
-    col4.metric("🏭 Dukungan Industri", "Fasilitas Fiskal")
+<div class="badge-row">
+    <div class="badge">📦 Kepabeanan</div>
+    <div class="badge">🏷️ Cukai</div>
+    <div class="badge">🛡️ Pengawasan</div>
+    <div class="badge">🚢 Ekspor–Impor</div>
+    <div class="badge">💰 Penerimaan Negara</div>
+    <div class="badge">🏭 Fasilitas Fiskal</div>
+</div>
 
-    st.markdown("""
-    <div class="block">
-    <b>Kepabeanan adalah</b> segala sesuatu yang berhubungan dengan pengawasan atas lalu lintas
-    barang yang masuk atau keluar daerah pabean serta pemungutan bea masuk dan bea keluar
-    untuk melindungi masyarakat, industri nasional, dan penerimaan negara.
+<div class="section-title">📘 Apa Itu Kepabeanan & Cukai?</div>
+
+<div class="highlight-box">
+<b>🔹 Kepabeanan adalah</b> seluruh kegiatan yang berkaitan dengan pengawasan atas lalu lintas
+barang yang masuk atau keluar daerah pabean serta pemungutan bea masuk dan bea keluar
+sesuai dengan ketentuan peraturan perundang-undangan yang berlaku.
+<br><br>
+<b>🔹 Cukai adalah</b> pungutan negara yang dikenakan terhadap barang tertentu yang mempunyai
+sifat atau karakteristik tertentu, seperti hasil tembakau, minuman mengandung etil alkohol,
+dan produk lain yang pengendaliannya perlu dilakukan oleh negara.
+</div>
+
+<div class="section-title">🏛️ Empat Pilar Strategis Bea Cukai</div>
+
+<div class="info-grid">
+
+<div class="info-card">
+<div class="info-icon">💰</div>
+<div class="info-title">Revenue Collector</div>
+<div class="info-text">
+Menghimpun penerimaan negara dari bea masuk, bea keluar, dan cukai sebagai sumber
+pembiayaan pembangunan nasional.
+</div>
+</div>
+
+<div class="info-card">
+<div class="info-icon">🛡️</div>
+<div class="info-title">Community Protector</div>
+<div class="info-text">
+Melindungi masyarakat dari peredaran narkotika, barang berbahaya, senjata ilegal,
+serta praktik penyelundupan lintas batas.
+</div>
+</div>
+
+<div class="info-card">
+<div class="info-icon">🚢</div>
+<div class="info-title">Trade Facilitator</div>
+<div class="info-text">
+Memfasilitasi arus ekspor dan impor melalui pelayanan kepabeanan yang cepat,
+transparan, berbasis teknologi, dan berorientasi pada kemudahan berusaha.
+</div>
+</div>
+
+<div class="info-card">
+<div class="info-icon">🏭</div>
+<div class="info-title">Industrial Assistance</div>
+<div class="info-text">
+Mendukung pertumbuhan industri nasional melalui fasilitas fiskal seperti kawasan
+berikat, KITE, dan insentif kepabeanan lainnya.
+</div>
+</div>
+
+</div>
+
+<div class="section-title">🔄 Alur Proses Kepabeanan (Impor & Ekspor)</div>
+
+<div class="timeline">
+    <div class="timeline-step">📄 Penyampaian Dokumen Pabean</div>
+    <div class="timeline-step">🔎 Analisis Risiko & Pemeriksaan</div>
+    <div class="timeline-step">📦 Pemeriksaan Fisik Barang</div>
+    <div class="timeline-step">💰 Pembayaran Bea & Cukai</div>
+    <div class="timeline-step">🚚 Persetujuan & Pengeluaran Barang</div>
+</div>
+
+<div class="section-title">⚙️ Tugas Pokok dan Fungsi DJBC</div>
+
+<div class="info-grid">
+
+<div class="info-card">
+<div class="info-icon">📊</div>
+<div class="info-title">Pengawasan Perbatasan</div>
+<div class="info-text">
+Mengawasi lalu lintas barang di pelabuhan laut, bandara, dan perbatasan untuk
+mencegah masuknya barang ilegal dan berbahaya.
+</div>
+</div>
+
+<div class="info-card">
+<div class="info-icon">⚖️</div>
+<div class="info-title">Penegakan Hukum</div>
+<div class="info-text">
+Melakukan penindakan, penyidikan, dan penegakan hukum terhadap pelanggaran
+di bidang kepabeanan dan cukai.
+</div>
+</div>
+
+<div class="info-card">
+<div class="info-icon">🤝</div>
+<div class="info-title">Pelayanan Publik</div>
+<div class="info-text">
+Memberikan pelayanan prima kepada pengguna jasa kepabeanan melalui sistem
+digital dan pendekatan berbasis risiko.
+</div>
+</div>
+
+<div class="info-card">
+<div class="info-icon">🏢</div>
+<div class="info-title">Fasilitasi Industri</div>
+<div class="info-text">
+Memberikan fasilitas fiskal untuk meningkatkan daya saing industri nasional,
+ekspor, dan investasi.
+</div>
+</div>
+
+</div>
+
+<div class="section-title">🌏 Peran Strategis DJBC Wilayah Aceh</div>
+
+<div class="highlight-box">
+Wilayah Aceh memiliki posisi strategis sebagai pintu gerbang perdagangan di wilayah
+barat Indonesia. DJBC Aceh berperan penting dalam menjaga keamanan perbatasan laut,
+mengawasi arus barang lintas negara, mendorong ekspor komoditas unggulan daerah,
+serta melindungi masyarakat dari peredaran narkotika dan barang ilegal.
+</div>
+
+<div class="section-title">🎯 Dampak Positif Kehadiran Bea Cukai</div>
+
+<div class="stat-grid">
+    <div class="stat-box">
+        <div class="stat-number">💰</div>
+        <div class="stat-label">Peningkatan penerimaan negara</div>
     </div>
-    """, unsafe_allow_html=True)
-
-# ===================== KONSEP =====================
-elif menu == "📘 Konsep Kepabeanan":
-    st.markdown('<div class="section">📘 Konsep Dasar Kepabeanan</div>', unsafe_allow_html=True)
-
-    st.markdown("""
-    <div class="block">
-    <b>Kepabeanan adalah</b> segala sesuatu yang berhubungan dengan pengawasan atas lalu lintas barang
-    yang masuk atau keluar daerah pabean serta pemungutan bea masuk dan bea keluar berdasarkan
-    peraturan perundang-undangan yang berlaku.
+    <div class="stat-box">
+        <div class="stat-number">🛡️</div>
+        <div class="stat-label">Perlindungan masyarakat & generasi muda</div>
     </div>
-    """, unsafe_allow_html=True)
-
-    st.markdown("""
-    <div class="block">💰 <b>Bea Masuk</b><br>Pungutan negara atas barang yang diimpor ke dalam daerah pabean.</div>
-    <div class="block">📤 <b>Bea Keluar</b><br>Pungutan negara atas barang tertentu yang diekspor keluar daerah pabean.</div>
-    <div class="block">⚖️ <b>Pengawasan Pabean</b><br>Pengendalian atas lalu lintas barang agar sesuai ketentuan hukum.</div>
-    <div class="block">📑 <b>Kewajiban Pabean</b><br>Kewajiban menyampaikan pemberitahuan pabean dan melunasi pungutan negara.</div>
-    """, unsafe_allow_html=True)
-
-# ===================== DAERAH PABEAN =====================
-elif menu == "🌍 Daerah Pabean":
-    st.markdown('<div class="section">🌍 Daerah Pabean & Wilayah Pengawasan</div>', unsafe_allow_html=True)
-
-    st.markdown("""
-    <div class="block">
-    <b>Daerah Pabean</b> meliputi wilayah darat, perairan, dan ruang udara Indonesia, termasuk
-    tempat tertentu di Zona Ekonomi Eksklusif dan landas kontinen yang diperlakukan sebagai
-    daerah pabean.
+    <div class="stat-box">
+        <div class="stat-number">🚢</div>
+        <div class="stat-label">Kelancaran arus perdagangan nasional</div>
     </div>
-    """, unsafe_allow_html=True)
-
-    st.markdown("""
-    <div class="block">🏞️ <b>Darat</b><br>Seluruh daratan Indonesia sebagai wilayah pengawasan kepabeanan.</div>
-    <div class="block">🌊 <b>Perairan</b><br>Laut teritorial dan perairan pedalaman Indonesia.</div>
-    <div class="block">✈️ <b>Ruang Udara</b><br>Ruang udara di atas wilayah Indonesia.</div>
-    <div class="block">🛢️ <b>ZEE & Landas Kontinen</b><br>Wilayah ekonomi khusus yang diperlakukan sebagai daerah pabean.</div>
-    """, unsafe_allow_html=True)
-
-# ===================== PEMBERITAHUAN =====================
-elif menu == "📄 Pemberitahuan Pabean":
-    st.markdown('<div class="section">📄 Pemberitahuan Pabean</div>', unsafe_allow_html=True)
-
-    st.markdown("""
-    <div class="block">
-    <b>Pemberitahuan Pabean</b> adalah pernyataan yang dibuat oleh orang untuk melaksanakan
-    kewajiban pabean dalam bentuk dan syarat yang ditetapkan oleh undang-undang.
+    <div class="stat-box">
+        <div class="stat-number">🏭</div>
+        <div class="stat-label">Pertumbuhan industri & UMKM ekspor</div>
     </div>
-    """, unsafe_allow_html=True)
+</div>
 
-    st.markdown("""
-    <div class="block">🖊️ <b>Bentuk</b><br>Ditulis di formulir atau disampaikan secara elektronik.</div>
-    <div class="block">👤 <b>Pihak</b><br>Pengangkut, importir, eksportir, atau PPJK.</div>
-    <div class="block">📥 <b>Registrasi</b><br>Setiap pihak wajib memiliki identitas kepabeanan.</div>
-    <div class="block">🔁 <b>Perubahan</b><br>Dapat diajukan jika terdapat kekeliruan data.</div>
-    """, unsafe_allow_html=True)
-
-# ===================== TPS TPB =====================
-elif menu == "🏗️ TPS & TPB":
-    st.markdown('<div class="section">🏗️ TPS, TPB & Penimbunan Barang</div>', unsafe_allow_html=True)
-
-    st.markdown("""
-    <div class="block">
-    <b>Tempat Penimbunan Sementara (TPS)</b> adalah bangunan atau lapangan di kawasan pabean
-    untuk menimbun barang sementara setelah dibongkar dari sarana pengangkut.
-    </div>
-    """, unsafe_allow_html=True)
-
-    st.markdown("""
-    <div class="block">📦 <b>TPS</b><br>Penimbunan sementara sebelum pengeluaran barang.</div>
-    <div class="block">🏭 <b>TPB</b><br>Penimbunan berikat dengan fasilitas penangguhan bea masuk.</div>
-    <div class="block">🏢 <b>TPP</b><br>Tempat penimbunan pabean milik pemerintah.</div>
-    <div class="block">♻️ <b>Tujuan</b><br>Diolah, dirakit, dipamerkan, diekspor kembali.</div>
-    """, unsafe_allow_html=True)
-
-# ===================== IMPOR EKSPOR =====================
-elif menu == "🚢 Impor & Ekspor":
-    st.markdown('<div class="section">🚢 Impor & Ekspor</div>', unsafe_allow_html=True)
-
-    st.markdown("""
-    <div class="block">📥 <b>Barang Impor</b><br>Barang yang dimasukkan ke dalam daerah pabean.</div>
-    <div class="block">📤 <b>Barang Ekspor</b><br>Barang yang dikeluarkan dari daerah pabean.</div>
-    """, unsafe_allow_html=True)
-
-    st.subheader("🔄 Alur Impor")
-    st.markdown("""
-    <div class="flow">
-        <div class="step">📄 PIB</div>
-        <div class="step">🔍 Penelitian Dokumen</div>
-        <div class="step">📦 Pemeriksaan Fisik</div>
-        <div class="step">💰 Pembayaran</div>
-        <div class="step">🚚 Pengeluaran Barang</div>
-    </div>
-    """, unsafe_allow_html=True)
-
-    st.subheader("🔄 Alur Ekspor")
-    st.markdown("""
-    <div class="flow">
-        <div class="step">📄 PEB</div>
-        <div class="step">🔍 Penelitian Dokumen</div>
-        <div class="step">📦 Pemeriksaan</div>
-        <div class="step">🚢 Pemuatan</div>
-        <div class="step">🌍 Ekspor</div>
-    </div>
-    """, unsafe_allow_html=True)
-
-# ===================== PEMBAYARAN =====================
-elif menu == "💰 Pembayaran & Jaminan":
-    st.markdown('<div class="section">💰 Pembayaran, Penagihan & Jaminan</div>', unsafe_allow_html=True)
-
-    st.markdown("""
-    <div class="block">
-    Bea masuk, denda administrasi, dan bunga dibayar ke kas negara atau tempat pembayaran
-    yang ditunjuk Menteri pada saat pendaftaran pemberitahuan pabean.
-    </div>
-    """, unsafe_allow_html=True)
-
-    st.markdown("""
-    <div class="block">💵 <b>Pembayaran</b><br>Dapat diberikan penundaan atau pembayaran berkala.</div>
-    <div class="block">⏳ <b>Penagihan</b><br>Kekurangan pembayaran wajib dilunasi paling lama 60 hari.</div>
-    <div class="block">📈 <b>Denda & Bunga</b><br>Dikenakan atas keterlambatan pembayaran.</div>
-    <div class="block">🛡️ <b>Jaminan</b><br>Dapat berupa tunai, bank, atau asuransi.</div>
-    """, unsafe_allow_html=True)
-
-# ===================== PENGANGKUTAN =====================
-elif menu == "🚚 Pengangkutan":
-    st.markdown('<div class="section">🚚 Pengangkutan & Pengawasan</div>', unsafe_allow_html=True)
-
-    st.markdown("""
-    <div class="block">
-    Pengangkut wajib memberitahukan rencana kedatangan sarana pengangkut dan mencantumkan
-    barang dalam manifes kepada Bea dan Cukai.
-    </div>
-    """, unsafe_allow_html=True)
-
-    st.markdown("""
-    <div class="block">🚢 <b>RKSP</b><br>Pemberitahuan rencana kedatangan sarana pengangkut.</div>
-    <div class="block">📜 <b>Manifes</b><br>Daftar barang yang diangkut.</div>
-    <div class="block">⚠️ <b>Keadaan Darurat</b><br>Barang dapat dibongkar dengan kewajiban pelaporan.</div>
-    <div class="block">🚨 <b>Sanksi</b><br>Pelanggaran dikenakan denda administratif.</div>
-    """, unsafe_allow_html=True)
-
-# ===================== BARANG TERTENTU =====================
-elif menu == "🛡️ Barang Tertentu":
-    st.markdown('<div class="section">🛡️ Barang Tertentu & Penindakan</div>', unsafe_allow_html=True)
-
-    st.markdown("""
-    <div class="block">
-    Barang tertentu adalah barang yang pengangkutannya di dalam daerah pabean diawasi
-    oleh Direktorat Jenderal Bea dan Cukai karena sifat, jenis, atau dampaknya.
-    </div>
-    """, unsafe_allow_html=True)
-
-    st.markdown("""
-    <div class="block">🚫 <b>Barang Berbahaya</b><br>Narkotika, senjata api, bahan peledak.</div>
-    <div class="block">🚬 <b>Barang Kena Cukai Ilegal</b><br>Rokok & MMEA tanpa pita cukai.</div>
-    <div class="block">⚖️ <b>Penindakan</b><br>Penegakan hukum kepabeanan.</div>
-    <div class="block">📑 <b>Pemeriksaan</b><br>Pemeriksaan dokumen dan barang.</div>
-    """, unsafe_allow_html=True)
-
-# ===================== TENTANG =====================
-elif menu == "ℹ️ Tentang":
-    st.markdown('<div class="section">ℹ️ Tentang Dashboard</div>', unsafe_allow_html=True)
-
-    st.markdown("""
-    <div class="block">
-    Dashboard ini dibuat sebagai media edukasi kepabeanan berbasis materi resmi DJBC
-    untuk mendukung literasi masyarakat dan kegiatan akademik, khususnya di wilayah Aceh.
-    <br><br>
-    Teknologi: <b>Python — Streamlit</b>
-    </div>
-    """, unsafe_allow_html=True)
-
-# ===================== FOOTER =====================
-st.markdown("""
 <div class="footer">
-🛃 Direktorat Jenderal Bea dan Cukai — Wilayah Aceh<br>
-Customs in Action | Infographic Dashboard
+© 2026 Direktorat Jenderal Bea dan Cukai — Wilayah Aceh  
+<br>Customs in Action | Infographic Education Dashboard
+</div>
+
 </div>
 """, unsafe_allow_html=True)
